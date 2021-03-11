@@ -1,0 +1,15 @@
+syntax = "proto3";
+option csharp_namespace = "AtlasEngine.Client.Notifications";
+package greet;
+
+import "google/protobuf/empty.proto";
+
+service Notifications {
+    rpc GetFlowNodeSuspendedNotifications (google.protobuf.Empty) returns (stream OnFlowNodeSuspendedNotification) {};
+}
+
+message OnFlowNodeSuspendedNotification {
+	string processModelId = 1;
+    string processInstanceId = 2;
+    string flowNodeId = 3;
+}
